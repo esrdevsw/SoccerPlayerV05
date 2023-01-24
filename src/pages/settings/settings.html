@@ -1,0 +1,32 @@
+<!--
+  Generated template for the SettingsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>settings</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Enter Country ID</ion-label>
+      <ion-input type="number" [(ngModel)]="countryID"></ion-input>
+    </ion-item>
+    <br>
+    <h4>Player Age:</h4>
+    <ion-item>
+      <ion-label floating>Minimum</ion-label>
+      <ion-input type="number" [(ngModel)]="minAge"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Maximum</ion-label>
+      <ion-input type="number" [(ngModel)]="maxAge"></ion-input>
+    </ion-item>
+  </ion-list>
+  <button ion-button (click)="save()">SAVE</button>
+  <button ion-button (click)="cancel()">CANCEL</button>
+</ion-content>

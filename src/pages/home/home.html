@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons left>
+      <button ion-button icon-only (click)="clickSettings()">
+        <ion-icon name="settings"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>G00411275</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding text-wrap>
+  <ion-list>
+    <ion-item>
+      <h1><b>Quote from {{author}} about:</b></h1>
+      <ul>
+        <li *ngFor="let t of tags">{{ t }}</li>
+      </ul>
+      <h2><b>{{content}}</b></h2>
+    </ion-item>
+    <ion-item>
+      {{messageHome}}
+    </ion-item>
+    <ion-item *ngIf=flagStatus>
+      <ion-thumbnail><img src="{{ flagImage }}" alt=" Flag {{myCountry_Name}}" /></ion-thumbnail>
+    </ion-item>
+  </ion-list>
+  <page-players *ngIf=flagStatus></page-players>
+</ion-content>
