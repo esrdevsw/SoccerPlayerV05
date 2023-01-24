@@ -40,18 +40,18 @@ export class PlayersPage {
         const countryID = val.Dt_countryID
         const minAge = val.Dt_minAge
         const maxAge = val.Dt_maxAge
-        console.log(">>> DADOS <<<");
-        console.log(countryID);
-        console.log(minAge);
-        console.log(maxAge);
+        console.log(">>> query data <<<");
+        console.log('countryID_', countryID);
+        console.log('minAge_', minAge);
+        console.log('maxAge_', maxAge);
 
         this.myCountryID = countryID;
 
         this.sp.getPlayers(countryID, minAge, maxAge).subscribe(res => {
-          console.log(">>> RESPOSTA <<<");
-          console.log('res_', res);
+          //console.log(">>> answer to query <<<");
+          //console.log('res_', res);
           this.dataArray = res['data'];
-          console.log(">>> dataArray <<<");
+          //console.log(">>> dataArray <<<");
           this.list_length = this.dataArray.length;
           this.sort();
         });
@@ -59,10 +59,10 @@ export class PlayersPage {
   }
 
   sortBy(key: any) {
-    console.log("sort inicial = " + this.sortDirection)
+    //console.log("sort inicial = " + this.sortDirection)
     this.sortKey = key;
     this.sortDirection++;
-    console.log("sort click = " + this.sortDirection)
+    //console.log("sort click = " + this.sortDirection)
     this.sort();
   }
 
@@ -92,7 +92,7 @@ export class PlayersPage {
       this.sortDirection = 0;
       this.sortKey = null;
     }
-    console.log(this.dataArray)
+    //console.log(this.dataArray)
   }
 
   removeRow(index: number) {

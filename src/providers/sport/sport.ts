@@ -16,28 +16,27 @@ export class SportProvider {
 
   getCountries() {
     var url = `https://app.sportdataapi.com/api/v1/soccer/countries?apikey=${this.apiSportKey}`;
-    console.log(">>>>>>>>>>>>>>>>>>>>>>>>  CALL getCountries");
+    //console.log(" CALL getCountries");
     return this.http.get(url);
   }
 
 
   getPlayers(myCountry_id: number, min_age: number, max_age: number) {
-    //var url = `https://app.sportdataapi.com/api/v1/soccer/players?apikey=${this.apiSportKey}&country_id=${myCountry_id}&min_age=${min_age}&max_age=${max_age}`;
 
     var url = `https://app.sportdataapi.com/api/v1/soccer/players?apikey=${this.apiSportKey}&country_id=${myCountry_id}`;
 
     if (min_age != null) {
       url = url + `&min_age=${min_age}`;
-      console.log('URL_MIN_', url);
+      //console.log('URL_MIN_', url);
     };
 
     if (max_age != null) {
       url = url + `&max_age=${max_age}`;
-      console.log('URL_MAX_', url);
+      //console.log('URL_MAX_', url);
     };
 
-    console.log(">>>>>>>>>>>>>>>>>>>>>>>>  CALL getPlayers");
-    console.log(url);
+    //console.log(" CALL getPlayers");
+    //console.log(url);
 
     return this.http.get(url);
   }

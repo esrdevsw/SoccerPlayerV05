@@ -16,7 +16,7 @@ export class QuotesProvider {
 
   getQuotes() {
     var url = "https://api.quotable.io/random";
-    console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@  CALL getQuotes");
+    //console.log("CALL getQuotes");
     return this.http.get(url);
   }
 }

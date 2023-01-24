@@ -13,6 +13,10 @@ interface CountryData {
   continent: string
 }
 
+interface setHistory {
+  Dt_countryID: number; Dt_minAge: number; Dt_maxAge: number; Dt_name: string; Dt_Country_code: string;
+}
+
 
 @Component({
   selector: 'page-home',
@@ -42,27 +46,30 @@ export class HomePage {
   flagImage: string;
   flagStatus: boolean = false;
 
+  settingsHistory: setHistory[] = [];
+
 
   //myMaxAge: number;
   //myMinAge: number;
 
   constructor(public navCtrl: NavController, private qt: QuotesProvider, private storage: Storage, private sp: SportProvider) {
 
-    console.log(" >>>>>    constructor    <<<<<")
+    //    console.log(" >>>>>    constructor    <<<<<")
 
     this.quotes = this.qt.getQuotes();
+    this.storage.set("settingsHistory", this.settingsHistory);
 
-    console.log(" >>>>>  END  constructor END   <<<<<")
+    //  console.log(" >>>>>  END  constructor END   <<<<<")
   }
 
   ionViewCanEnter() {
-    console.log('HOME ionViewCanEnter A');
+    //console.log('HOME ionViewCanEnter A');
     // quotesData() - set home page with quotes
     this.quotesData();
   }
 
   ionViewWillEnter() {
-    console.log('HOME ionViewWillEnter C');
+    //console.log('HOME ionViewWillEnter C');
 
     this.readCountryID();
   }
@@ -113,8 +120,17 @@ export class HomePage {
 
 
   getFlag() {
-    this.flagImage = "https://flagsapi.com/" + this.myCountry_code + "/shiny/64.png";
-    console.log(this.flagImage);
+
+    //this.flagImage = "https://flagsapi.com/" + this.myCountry_code + "/shiny/64.png";
+
+    this.storage.get("countryData")
+      .then((val) => {
+        //console.log('val_', val[this.countryID - 1].flag);
+        this.flagImage = val[this.countryID - 1].flag
+
+      });
+
+
   }
 
 }

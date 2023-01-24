@@ -6,7 +6,7 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title>settings</ion-title>
+    <ion-title>Settings</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -27,6 +27,55 @@
       <ion-input type="number" [(ngModel)]="maxAge"></ion-input>
     </ion-item>
   </ion-list>
-  <button ion-button (click)="save()">SAVE</button>
-  <button ion-button (click)="cancel()">CANCEL</button>
+  <button ion-button (click)="save()" small>SAVE</button>
+  <button ion-button (click)="cancel()" small>CANCEL</button>
+  <button ion-button (click)="allCountryID()" small>List ID</button>
+  <button ion-button (click)="getHistorySearch()" small>History</button>
+
+
+  <div *ngIf="showID">
+    <ion-list>
+      <ion-item *ngFor="let row of val_ID_dataArray; let i = index;">
+        <ion-avatar item-left>
+          <img src={{row.flag}} />
+        </ion-avatar>
+        <h2>ID: {{row.country_id}} - {{row.name}} ({{row.country_code}}) </h2>
+        <p>Continent: {{row.continent}}</p>
+      </ion-item>
+    </ion-list>
+
+  </div>
+
+  <div *ngIf="showHistory">
+    <!------------------- HEADER ----------------------->
+    <ion-row class="header-row">
+      <ion-col size="2">
+        Country ID
+      </ion-col>
+      <ion-col size="2">
+        max Age
+      </ion-col>
+      <ion-col size="2">
+        min Age
+      </ion-col>
+      <ion-col size="2">
+        Country Name
+      </ion-col>
+    </ion-row>
+    <!------------------- table ----------------------->
+    <ion-row *ngFor="let row of val_SearchArray; let i = index;" class="data-row">
+      <ion-col size="6" size-md="4" size-lg="2">
+        {{row.Dt_countryID}}
+      </ion-col>
+      <ion-col size="6">
+        {{row.Dt_maxAge}}
+      </ion-col>
+      <ion-col size="6" class="ion-hide-md-down">
+        {{row.Dt_minAge}}
+      </ion-col>
+      <ion-col size="6" class="ion-hide-lg-down">
+        {{row.Dt_name}} {{row.Dt_Country_code}}
+      </ion-col>
+    </ion-row>
+  </div>
 </ion-content>
