@@ -8,8 +8,8 @@ The complete list of players available in the database is displayed by the app i
 To improve the user experience, the layout for data entry and the arrangement of results in the table have been optimized.
 
 Functions have been implemented in the settings page to check the list of country IDs and another function to check the search history.
-![image](https://user-images.githubusercontent.com/21969268/233978627-d3711d2e-599d-4471-8a05-14699f2c0cd4.png)![image](https://user-images.githubusercontent.com/21969268/233978653-be049c0d-87fe-4759-aa87-e852fe58cdaf.png)
 
+![image](https://user-images.githubusercontent.com/21969268/233979429-8024b6d3-e0ac-420d-be82-ebb6e36de320.png)
 
 On the home page, the player's table can be sorted by first and last name. When a valid search is performed, however, an appropriate message is displayed on the screen instead of the table if no results are returned.
 ![image](https://user-images.githubusercontent.com/21969268/233978944-4c213398-c36a-42d9-b058-073a0091b588.png)
